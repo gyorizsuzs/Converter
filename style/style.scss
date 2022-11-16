@@ -1,0 +1,75 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  margin: 50px 25px;
+  padding: 20px;
+  background-color: rgb(25, 146, 198);
+  color: antiquewhite;
+  border: 1px solid antiquewhite;
+  border-radius: 20px;
+
+  #root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header {
+    margin: 10px;
+    padding-bottom: 20px;
+    font-size: 24px;
+  }
+
+  .input-field {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .inner-container {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .input {
+        padding: 5px;
+
+        &::placeholder {
+          color: rgba(0, 0, 0, 0.3);
+          font-style: italic;
+        }
+      }
+
+      button {
+        margin: 5px;
+        cursor: pointer;
+      }
+    }
+
+    .output {
+    }
+  }
+}
+
+/* background-image: url(/assets/numbers.jpeg);
+color: antiquewhite;
+font-weight: 700;
+height: 500px;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover; */
+
+footer {
+  padding: 5px 20px;
+  width: 100%;
+  border-top: 1px solid antiquewhite;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  u {
+    cursor: pointer;
+  }
+}
