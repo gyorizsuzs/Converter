@@ -1,2 +1,4 @@
 # assessment-Zsuzsanna-Gyori
-JS-numerals assessment.
+
+This is a technical assesment for
+JS-numerals.
