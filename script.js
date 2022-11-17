@@ -10,14 +10,14 @@ const headerComponent = function (title) {
     `;
 };
 
-const converterComponent = function (output) {
+const converterComponent = function (outputComponent) {
   return `
     <div class="input-field">
         <div class="inner-container">
             <input class="input" type="number" placeholder="number to convert" required />
-            <button type="submit">Submit</button>
+            <button type="submit">Convert</button>
         </div>
-        <p class="output">${output}</p>
+        <p class="output">${outputComponent}</p>
     </div>
     `;
 };
@@ -40,7 +40,7 @@ function loadEvent() {
 
   document
     .querySelector('#root')
-    .insertAdjacentHTML('beforeend', converterComponent('outputComponent'));
+    .insertAdjacentHTML('beforeend', converterComponent());
 
   const inputComponent = document.querySelector('.input');
   const outputComponent = document.querySelector('.output');

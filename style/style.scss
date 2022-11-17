@@ -8,7 +8,7 @@ body {
   background-color: rgb(25, 146, 198);
   color: antiquewhite;
   border: 1px solid antiquewhite;
-  border-radius: 20px;
+  border-radius: 10px;
 
   #root {
     display: flex;
@@ -19,13 +19,18 @@ body {
   header {
     margin: 10px;
     padding-bottom: 20px;
-    font-size: 24px;
+
+    .title {
+      font-size: 36px;
+    }
   }
 
   .input-field {
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-evenly;
 
     .inner-container {
       padding: 15px;
@@ -35,15 +40,24 @@ body {
 
       .input {
         padding: 5px;
+        border: 1px solid antiquewhite;
+        border-radius: 5px;
+        color: rgb(25, 146, 198);
+        outline: none;
 
         &::placeholder {
-          color: rgba(0, 0, 0, 0.3);
+          color: rgba(25, 146, 198, 0.449);
           font-style: italic;
         }
       }
 
       button {
         margin: 5px;
+        border-radius: 5px;
+        border: 1px solid antiquewhite;
+        background-color: antiquewhite;
+        color: rgb(25, 146, 198);
+        font-weight: bold;
         cursor: pointer;
       }
     }
@@ -51,6 +65,16 @@ body {
     .output {
     }
   }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
 }
 
 /* background-image: url(/assets/numbers.jpeg);
