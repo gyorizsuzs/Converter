@@ -104,7 +104,8 @@ function numToStr(numeral) {
 
   function doTheMath(number, orderValueIndex = -1) {
     const result = [];
-    let num = number.toString();
+    let dividedNum;
+    let remainderNum;
 
     if (number === 0) return 'zero';
 
@@ -119,59 +120,54 @@ function numToStr(numeral) {
     // Numbers over 100
 
     if (number > 99) {
-      if (num.length == 3) {
-        if (num[1] === '0' && num[2] === '0') {
-          return ones[num[0]] + ' ' + orders[0];
-        } else {
-          if (num[2] === '0') {
-            return ones[num[0]] + ' ' + orders[0] + ' and ' + tens[num[1]];
-          } else {
-            return (
-              ones[num[0]] +
-              ' ' +
-              orders[0] +
-              ' and ' +
-              tens[num[1]] +
-              '-' +
-              ones[num[2]]
-            );
+      const commDIndex = orderValues.findIndex((orderValue, i) => {
+        if (i <= orderValueIndex) return false;
+        dividedNum = Math.floor(number / orderValue);
+        if (dividedNum > 0) {
+          if (dividedNum < 10 && number > 1099 && number < 2000) {
+            return false;
           }
+          return true;
+        } else {
+          return false;
         }
+      });
+
+      remainderNum = number % orderValues[commDIndex];
+      const commonDenom = orders[commDIndex];
+      result.push(doTheMath(dividedNum, commDIndex));
+      result.push(commonDenom);
+      if (remainderNum > 0) {
+        if (remainderNum < 100) {
+          result.push('and');
+        }
+        result.push(doTheMath(remainderNum));
       }
 
-      if (num.length == 4) {
-        if (num[(1, 2, 3)] === '0') {
-          return ones[num[0]] + ' ' + orders[1];
+      return result.join(' ');
+
+      // Numbers between 0-99
+    } else {
+      if (number < 10) {
+        return ones[number];
+      }
+      if (number > 9 && number < 20) {
+        return teens[number - 10];
+      }
+      if (number >= 20) {
+        dividedNum = Math.trunc(number / 10);
+        remainderNum = number - dividedNum * 10;
+
+        result.push(tens[dividedNum]);
+
+        if (remainderNum > 0) {
+          result.push(ones[remainderNum]);
         }
-        if (num[(2, 3)] === '0') {
-          if (num[(0, 1)] < 20) return teens[num[(0, 1)]] + ' ' + orders[0];
-        }
-        if (num[3] === '0') {
-          return teens[num[(0, 1)]] + ' ' + orders[0] + ' and ' + tens[num[2]];
-        }
-        if (num[(1, 2)] === '0') {
-          return ones[num[0]] + ' ' + orders[1] + ' and ' + ones[num[3]];
-        }
-        if (num[1] === '0') {
-          return ones[num[0]] + ' ' + orders[1] + ' and ' + tens[num[(2, 3)]];
-        }
-        if (num[2] === '0') {
-          return teens[num[(0, 1)]] + ' ' + orders[0] + ' and ' + ones[num[3]];
-        } else {
-          return (
-            teens[num[(0, 1)]] +
-            ' ' +
-            orders[0] +
-            ' and ' +
-            tens[num[2]] +
-            '-' +
-            ones[num[3]]
-          );
-        }
+        return result.join('-');
       }
     }
-    return doTheMath(number);
   }
+  return doTheMath(number);
 }
 
 function converter(inputData) {
