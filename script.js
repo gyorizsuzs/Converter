@@ -104,6 +104,7 @@ function numToStr(numeral) {
 
   function doTheMath(number, orderValueIndex = -1) {
     const result = [];
+    let num = number.toString();
 
     if (number === 0) return 'zero';
 
@@ -114,8 +115,63 @@ function numToStr(numeral) {
       result.push(doTheMath(-number, orderValueIndex));
       return result.join(' ');
     }
+
+    // Numbers over 100
+
+    if (number > 99) {
+      if (num.length == 3) {
+        if (num[1] === '0' && num[2] === '0') {
+          return ones[num[0]] + ' ' + orders[0];
+        } else {
+          if (num[2] === '0') {
+            return ones[num[0]] + ' ' + orders[0] + ' and ' + tens[num[1]];
+          } else {
+            return (
+              ones[num[0]] +
+              ' ' +
+              orders[0] +
+              ' and ' +
+              tens[num[1]] +
+              '-' +
+              ones[num[2]]
+            );
+          }
+        }
+      }
+
+      if (num.length == 4) {
+        if (num[(1, 2, 3)] === '0') {
+          return ones[num[0]] + ' ' + orders[1];
+        }
+        if (num[(2, 3)] === '0') {
+          if (num[(0, 1)] < 20) return teens[num[(0, 1)]] + ' ' + orders[0];
+        }
+        if (num[3] === '0') {
+          return teens[num[(0, 1)]] + ' ' + orders[0] + ' and ' + tens[num[2]];
+        }
+        if (num[(1, 2)] === '0') {
+          return ones[num[0]] + ' ' + orders[1] + ' and ' + ones[num[3]];
+        }
+        if (num[1] === '0') {
+          return ones[num[0]] + ' ' + orders[1] + ' and ' + tens[num[(2, 3)]];
+        }
+        if (num[2] === '0') {
+          return teens[num[(0, 1)]] + ' ' + orders[0] + ' and ' + ones[num[3]];
+        } else {
+          return (
+            teens[num[(0, 1)]] +
+            ' ' +
+            orders[0] +
+            ' and ' +
+            tens[num[2]] +
+            '-' +
+            ones[num[3]]
+          );
+        }
+      }
+    }
+    return doTheMath(number);
   }
-  return doTheMath(number);
 }
 
 function converter(inputData) {
