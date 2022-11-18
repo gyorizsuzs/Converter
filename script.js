@@ -1,6 +1,8 @@
-// --- Data --- //
+/*******************************************/
 
-// --- Components --- //
+/*                Components               */
+
+/*******************************************/
 
 const headerComponent = function (title) {
   return `
@@ -10,51 +12,58 @@ const headerComponent = function (title) {
     `;
 };
 
-const converterComponent = function (outputComponent) {
+const converterComponent = function (output) {
   return `
     <div class="input-field">
-        <div class="inner-container">
-            <input class="input" type="number" placeholder="number to convert" required />
-            <button type="submit">Convert</button>
+        <div class="left-container">
+            <input
+             id="input"
+             type="number"
+             placeholder="Type your number here..."
+             required
+             />
+            <button 
+             onclick="handleClick()" >
+             Convert
+            </button>
         </div>
-        <p class="output">${outputComponent}</p>
+        <div class="right-container">
+            <h2><u>Number is converted to:</u></h2>
+            <p id="output">${output}</p>
+        </div>
     </div>
     `;
 };
 
-const footerComponent = function (copyright) {
+const footerComponent = function (copyright, date) {
   return `
-    <footer>${copyright}</footer>
+    <footer>
+        <div>${copyright}</div>
+        <p id="date">${date}</p>
+    </footer>
     `;
 };
 
-// --- Initialisation --- //
+/*******************************************/
+
+/*              Initialization             */
+
+/*******************************************/
 
 function loadEvent() {
   document
-    .querySelector('#root')
+    .getElementById('root')
     .insertAdjacentHTML(
       'beforeend',
-      headerComponent('Number to Numeral Converter')
+      headerComponent('Number to Numeral Converter') +
+        converterComponent('') +
+        footerComponent(
+          'Copyright © 2022 <u>ZsuperConverters Ltd.</u> All rights reserved'
+        )
     );
 
-  document
-    .querySelector('#root')
-    .insertAdjacentHTML('beforeend', converterComponent());
-
-  const inputComponent = document.querySelector('.input');
-  const outputComponent = document.querySelector('.output');
-  inputComponent.addEventListener('submit', (event) => {
-    let inputData = event.target.value;
-    outputComponent.innerHTML = inputData;
-  });
-
-  root.insertAdjacentHTML(
-    'afterend',
-    footerComponent(
-      'Copyright © 2022 <u>ZsuperConverters Ltd.</u> All rights reserved'
-    )
-  );
+  const date = new Date();
+  document.getElementById('date').innerHTML = date.toUTCString();
 }
 
 window.addEventListener('load', loadEvent);
