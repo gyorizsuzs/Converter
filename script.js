@@ -44,6 +44,65 @@ const footerComponent = function (copyright, date) {
     `;
 };
 
+function numToStr(numeral) {
+  /*******************************************/
+
+  /*                   Data                  */
+
+  /*******************************************/
+
+  const ones = [
+    '',
+    'one',
+    'two',
+    'three',
+    'four',
+    'five',
+    'six',
+    'seven',
+    'eight',
+    'nine',
+  ];
+
+  const teens = [
+    'ten',
+    'eleven',
+    'twelve',
+    'thirteen',
+    'fourteen',
+    'fifteen',
+    'sixteen',
+    'seventeen',
+    'eighteen',
+    'nineteen',
+  ];
+
+  const tens = [
+    '',
+    '',
+    'twenty',
+    'thirty',
+    'forty',
+    'fifty',
+    'sixty',
+    'seventy',
+    'eighty',
+    'ninety',
+  ];
+
+  const orders = ['trillion', 'billion', 'million', 'thousand', 'hundred'];
+  const orderValues = [1e12, 1e9, 1e6, 1e3, 1e2];
+  const number = Number.parseInt(numeral);
+
+  // Javascript allows plain numbers to a maximum of ~1.79e308
+
+  /*******************************************/
+
+  /*               Base Logic                */
+
+  /*******************************************/
+}
+
 /*******************************************/
 
 /*              Initialization             */
