@@ -1,6 +1,5 @@
 * {
   font-family: "Montserrat", sans-serif;
-  scroll-behavior: smooth;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -44,8 +43,8 @@ body .input-field .left-container {
   gap: 30px;
 }
 body .input-field .left-container #input {
-  height: 30px;
   padding: 5px;
+  height: 30px;
   width: 110%;
   border: 1px solid antiquewhite;
   border-radius: 5px;

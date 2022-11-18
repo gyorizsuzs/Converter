@@ -1,6 +1,5 @@
 * {
   font-family: 'Montserrat', sans-serif;
-  scroll-behavior: smooth;
 
   &::-webkit-scrollbar {
     display: none;
@@ -13,8 +12,10 @@
 body {
   margin: 50px 25px;
   padding: 20px;
+
   background-color: rgb(25, 146, 198);
   color: antiquewhite;
+
   border: 1px solid antiquewhite;
   border-radius: 10px;
 
@@ -35,27 +36,35 @@ body {
 
   .input-field {
     width: 100%;
+
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
+
     gap: 20px;
 
     .left-container {
       padding: 15px;
+
       display: flex;
       flex-direction: column;
       align-items: center;
+
       gap: 30px;
 
       #input {
-        height: 30px;
         padding: 5px;
+
+        height: 30px;
         width: 110%;
+
         border: 1px solid antiquewhite;
         border-radius: 5px;
+
         font-size: 18px;
         color: rgb(25, 146, 198);
+
         outline: none;
 
         &::placeholder {
@@ -67,12 +76,15 @@ body {
       button {
         height: 30px;
         width: 85px;
+
         border-radius: 5px;
         border: 1px solid antiquewhite;
+
         background-color: antiquewhite;
         color: rgb(25, 146, 198);
         font-size: 16px;
         font-weight: bold;
+
         cursor: pointer;
         outline: none;
 
@@ -87,6 +99,7 @@ body {
       display: flex;
       flex-direction: column;
       align-items: center;
+
       gap: 30px;
 
       h2 {
@@ -112,11 +125,15 @@ input[type='number'] {
 
 footer {
   padding: 10px;
+
   width: 100%;
+
   border-top: 1px solid antiquewhite;
+
   position: absolute;
   left: 0;
   bottom: 0;
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
