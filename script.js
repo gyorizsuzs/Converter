@@ -1,3 +1,5 @@
+`use strict`;
+
 /*******************************************/
 
 /*                Components               */
@@ -122,7 +124,7 @@ function numToStr(numeral) {
     if (number > 99) {
       const commDIndex = orderValues.findIndex((orderValue, i) => {
         if (i <= orderValueIndex) return false;
-        dividedNum = Math.floor(number / orderValue);
+        dividedNum = Math.trunc(number / orderValue);
         if (dividedNum > 0) {
           if (dividedNum < 10 && number > 1099 && number < 2000) {
             return false;
@@ -209,3 +211,5 @@ function loadEvent() {
 }
 
 window.addEventListener('load', loadEvent);
+
+module.exports = numToStr;

@@ -1,0 +1,40 @@
+{
+  "name": "assessment-zsuzsanna-gyori",
+  "version": "1.0.0",
+  "description": "This is a technical assesment for JS-numerals.",
+  "main": "script.js",
+  "scripts": {
+    "test": "jest --watch --coverage"
+  },
+  "jest": {
+    "verbose": true,
+    "testEnvironment": "jsdom",
+    "reporters": [
+      "default",
+      [
+        "./node_modules/jest-html-reporter",
+        {
+          "pageTitle": "Test Report"
+        }
+      ]
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gyorizsuzs/assessment-Zsuzsanna-Gyori.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gyorizsuzs/assessment-Zsuzsanna-Gyori/issues"
+  },
+  "homepage": "https://github.com/gyorizsuzs/assessment-Zsuzsanna-Gyori#readme",
+  "devDependencies": {
+    "jest": "^29.3.1"
+  },
+  "dependencies": {
+    "jest-environment-jsdom": "^29.3.1",
+    "jest-html-reporter": "^3.7.0"
+  }
+}
